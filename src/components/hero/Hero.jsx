@@ -15,7 +15,7 @@ const Hero = () => {
         <h1>{state}</h1>
         <button disabled={state === 0} onClick={() => dispatch(dec())}>
           dec
-        </button>{" "}
+        </button>
       </div>
     </div>
   );
