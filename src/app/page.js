@@ -1,8 +1,9 @@
 import Clean from "@/components/clean/Clean";
 import Hero from "@/components/hero/Hero";
-import Product from "@/components/product/Product";
+import ProductData from "@/components/product-data/ProductData";
 import Testimo from "@/components/testimo/Testimo";
 import Image from "next/image";
+import Product from "./product/page";
 
 export default function Home() {
   return (

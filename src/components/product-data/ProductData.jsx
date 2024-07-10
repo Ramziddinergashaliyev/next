@@ -5,7 +5,8 @@ import Image from "next/image";
 import { PRODUCT } from "@/static";
 import Link from "next/link";
 
-const Product = ({ limit }) => {
+const ProductData = ({ data, limit }) => {
+  console.log(data);
   return (
     <div className="product container">
       <h3 className="product__title">Products</h3>
@@ -13,10 +14,10 @@ const Product = ({ limit }) => {
         Order it for you or for your beloved ones{" "}
       </p>
       <div className="product__cards">
-        {PRODUCT?.slice(0, limit)?.map((el) => (
+        {data.products?.slice(0, limit).map((el) => (
           <div key={el.id} className="product__card">
             <Link href={`/product/${el?.id}`} className="product__card__img">
-              <Image width={150} height={150} alt="img" src={el?.img} />
+              <Image width={150} height={150} alt="img" src={el?.images[0]} />
             </Link>
             <div className="product__card__info">
               <h3>{el?.title}</h3>
@@ -29,4 +30,4 @@ const Product = ({ limit }) => {
   );
 };
 
-export default Product;
+export default ProductData;
