@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import "./single.scss";
-import { useSelector } from "react-redux";
 import { useGetProductByIdQuery } from "@/lib/api/productApi";
 import SingleLoading from "../singleLoading/SingleLoading";
 

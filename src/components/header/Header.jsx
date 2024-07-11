@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [show, setShow] = useState(false);
   const cartData = useSelector((state) => state.cart.value);
+  const wishlist = useSelector((state) => state.wishlist.value);
 
   return (
     <header className="header">
@@ -29,7 +30,7 @@ const Header = () => {
           <li className="header__nav__item">Contact us</li>
           <Link href={"/wishlist"}>
             wishlist
-            <sup className="header__heart">{cartData.length}</sup>
+            <sup className="header__heart">{wishlist.length}</sup>
           </Link>
         </ul>
         <div className="header__nav__icon">
