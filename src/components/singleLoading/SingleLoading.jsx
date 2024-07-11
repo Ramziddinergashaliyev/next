@@ -1,7 +1,7 @@
 import React from "react";
-import "./loading.scss";
+import "./singleLoading.scss";
 
-const Loading = () => {
+const SingleLoading = () => {
   return (
     <div className="container">
       <div className="singleLoading container">
@@ -18,4 +18,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default SingleLoading;
