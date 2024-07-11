@@ -1,0 +1,237 @@
+.cart {
+  &__top__row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #aaa6;
+    justify-content: space-between;
+    padding: 10px 0px;
+
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      h3 {
+        padding: 0px 10px;
+        width: 140px;
+      }
+    }
+  }
+
+  &__bottom__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 10px;
+  }
+
+  &__bottom__row-product {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      padding: 2px 3px;
+      border-radius: 50%;
+      border: 1px solid #aaa6;
+      svg {
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &__img {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  &__bottom__row__left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__bottom__row-info {
+    width: 150px;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 30px;
+    p {
+      padding: 14px;
+    }
+  }
+
+  &__bottom__row-btns {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 0px;
+    button {
+      padding: 6px 10px;
+      background-color: #aaa6;
+      border: 1px solid transparent;
+    }
+    span {
+      background-color: #aaa6;
+      padding: 6px 10px;
+      font-size: 15px;
+    }
+  }
+  &__hide {
+    display: none;
+  }
+
+  &__result {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 30px 0px;
+
+    form {
+      display: flex;
+      align-items: center;
+      border: 1px solid #aaa6;
+
+      input {
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: blue;
+        border: 2px solid blue;
+        color: white;
+      }
+    }
+  }
+
+  &__result__right-total {
+    padding-top: 20px;
+    border-top: 1px solid #aaa6;
+  }
+
+  &__result__right {
+    width: 300px;
+    padding: 3px 0px;
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: blue;
+      color: white;
+      border: 1px solid transparent;
+    }
+  }
+
+  &__result__right-cart {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0px;
+  }
+
+  @media (max-width: 900px) {
+    &__bottom__row {
+      flex-direction: column;
+      gap: 8px;
+    }
+    &__bottom__row__left {
+      display: flex;
+    }
+
+    &__bottom__row-info {
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    &__hide {
+      display: block;
+    }
+  }
+
+  @media (max-width: 800px) {
+    &__result__right {
+      width: 100%;
+      padding: 3px 0px;
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: blue;
+        color: white;
+        border: 1px solid transparent;
+      }
+    }
+
+    &__result {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      padding: 30px 0px;
+
+      form {
+        display: flex;
+        align-items: center;
+        border: 1px solid #aaa6;
+        width: 100%;
+
+        input {
+          padding: 10px 20px;
+          border: none;
+          outline: none;
+          width: 100%;
+          flex-grow: 1;
+        }
+
+        button {
+          padding: 10px 20px;
+          background-color: blue;
+          border: 2px solid blue;
+          color: white;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 630px) {
+    &__bottom__row-info {
+      width: 70px;
+      display: flex;
+      align-items: flex-start;
+      padding: 0px;
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__bottom__row {
+      box-shadow: 1px 1px 10px #aaa6;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__top__row {
+      display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    &__bottom__row__left {
+      gap: 5px;
+    }
+  }
+}

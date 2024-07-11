@@ -3,9 +3,12 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import "./single.scss";
+import { useSelector } from "react-redux";
+import { useGetProductByIdQuery } from "@/lib/api/productApi";
 
-const Single = ({ product }) => {
+const Single = ({ product, id }) => {
   const [count, setCount] = useState(1);
+  const { data } = useGetProductByIdQuery(id);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -16,12 +19,7 @@ const Single = ({ product }) => {
       <div className="single__card container">
         <div className="single__left">
           <div className="single__left__img">
-            <Image
-              width={300}
-              height={300}
-              alt="rasm"
-              src={product?.images[0]}
-            />
+            <Image width={300} height={300} alt="rasm" src={data?.images[0]} />
           </div>
           <p>
             All hand-made with natural soy wax, Candleaf is made for your
@@ -30,9 +28,9 @@ const Single = ({ product }) => {
           <button>🚚 FREE SHIPPING</button>
         </div>
         <div className="single__right">
-          <h3>{product?.title}</h3>
+          <h3>{data?.title}</h3>
           <div className="single__right__top">
-            <p className="single__right__top-price">{product?.price}</p>
+            <p className="single__right__top-price">{data?.price}</p>
             <div className="single__right__top__radio">
               <input type="radio" />
               <p>One time purchase</p>

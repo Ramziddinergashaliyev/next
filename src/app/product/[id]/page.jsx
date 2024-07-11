@@ -4,10 +4,9 @@ import React from "react";
 
 const Detail = async ({ params }) => {
   const { id } = params;
-  const detailsData = await getData(`/products/${id}`);
   return (
     <div>
-      <Single product={detailsData} />
+      <Single id={id} />
     </div>
   );
 };

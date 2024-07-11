@@ -24,10 +24,13 @@ const Header = () => {
           <li className="header__nav__item">Discovery</li>
           <li className="header__nav__item">About</li>
           <li className="header__nav__item">Contact us</li>
+          <Link href={"/wishlist"}>wishlist</Link>
         </ul>
         <div className="header__nav__icon">
           <FaRegUser />
-          <FiShoppingCart />
+          <Link href={"/cart"}>
+            <FiShoppingCart />
+          </Link>
         </div>
         <div onClick={() => setShow(true)} className="header__nav__menu">
           <AiOutlineMenu />

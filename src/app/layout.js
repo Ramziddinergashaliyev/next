@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import Providers from "@/components/provider/Providers";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+import StoreProvider from "./StoreProvider";
+import DefaultValues from "@/components/default-values/DefaultValues";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <StoreProvider>
+          <DefaultValues />
+          <Header />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
