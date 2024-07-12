@@ -16,12 +16,6 @@ import Empty from "../empty/Empty";
 function CartWrapper() {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.cart.value);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    let total = cartData.reduce((sum, el) => sum + el.quantity * el.price, 0);
-    setTotalPrice(total);
-  }, [cartData]);
 
   useEffect(() => {
     window.scroll(0, 0);

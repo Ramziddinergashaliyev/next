@@ -1,4 +1,5 @@
 .product {
+  min-height: 300px;
   &__cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
