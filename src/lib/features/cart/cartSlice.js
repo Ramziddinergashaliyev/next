@@ -10,10 +10,10 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       let index = state.value.findIndex((i) => i.id === action.payload.id);
       if (index < 0) {
-        state.value = [...state.value, { ...action.payload, quantity: 1 }];
+        state.value = [...state.value, { ...action.payload, amount: 1 }];
       } else {
         state.value = state.value.map((item, inx) =>
-          inx === index ? { ...item, quantity: item.quantity + 1 } : item
+          inx === index ? { ...item, amount: item.amount + 1 } : item
         );
       }
       localStorage.setItem("cart", JSON.stringify(state.value));

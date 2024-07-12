@@ -16,6 +16,7 @@ import Empty from "../empty/Empty";
 function CartWrapper() {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.cart.value);
+  console.log(cartData);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -62,9 +63,9 @@ function CartWrapper() {
                     <button onClick={() => dispatch(increaseCart(el))}>
                       +
                     </button>
-                    <span>{el.quantity}</span>
+                    <span>{el.amount}</span>
                     <button
-                      disabled={el.quantity <= 0}
+                      disabled={el.amount <= 0}
                       onClick={() => dispatch(decreaseCart(el))}
                     >
                       -
@@ -73,7 +74,7 @@ function CartWrapper() {
                 </div>
                 <div className="cart__bottom__row-info">
                   <p className="cart__hide">UNIT</p>
-                  <p>{el?.price * el.quantity}</p>
+                  <p>{Math.ceil(el?.price * el.amount)}</p>
                 </div>
               </div>
             </div>

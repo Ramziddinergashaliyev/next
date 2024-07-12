@@ -5,10 +5,29 @@ import Image from "next/image";
 import "./single.scss";
 import { useGetProductByIdQuery } from "@/lib/api/productApi";
 import SingleLoading from "../singleLoading/SingleLoading";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  decreaseCart,
+  removeFromCart,
+} from "@/lib/features/cart/cartSlice";
 
-const Single = ({ product, id }) => {
+const Single = ({ id }) => {
   const [count, setCount] = useState(1);
   const { data, isLoading } = useGetProductByIdQuery(id);
+  const cartData = useSelector((state) => state.cart.value);
+  const dispatch = useDispatch();
+  const cart = cartData?.find((el) => el.id === data?.id);
+
+  console.log(data);
+
+  const handleInc = () => {
+    dispatch(addToCart(data));
+  };
+
+  const handleDec = () => {
+    dispatch(cart?.amount > 1 ? decreaseCart(data) : removeFromCart(data?.id));
+  };
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -68,9 +87,22 @@ const Single = ({ product, id }) => {
                     order. The discount will be applied at checkout. See details
                   </p>
                 </div>
-                <button className="single__right__middle-btn">
-                  + Add to cart
-                </button>
+                {cart ? (
+                  <div className="single__right__middle-counter">
+                    <button onClick={handleInc}>+</button>
+                    <p>{cart?.amount}</p>
+                    <button disabled={count === 0} onClick={handleDec}>
+                      -
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => dispatch(addToCart(data))}
+                    className="single__right__middle-btn"
+                  >
+                    + Add to cart
+                  </button>
+                )}
               </div>
             </div>
             <div className="single__bottom">
